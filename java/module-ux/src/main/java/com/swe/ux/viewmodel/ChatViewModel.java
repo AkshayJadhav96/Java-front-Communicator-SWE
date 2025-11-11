@@ -22,7 +22,7 @@ public class ChatViewModel {
     private final AbstractRPC rpc;
     // TODO: In a real app, get this from your AuthService
     private final String currentUserId = "user-" + UUID.randomUUID().toString().substring(0, 8);
-    private final String currentDisplayName = "Me";
+    private final String currentDisplayName = "A";
 
     private final Map<String, ChatMessage> messageHistory = new ConcurrentHashMap<>();
     private String currentReplyId = null;
@@ -78,7 +78,7 @@ public class ChatViewModel {
         ChatMessage message = ChatMessageSerializer.deserialize(data);
         // Update the UI
         handleIncomingMessage(message);
-        return null;
+        return new byte[0];
     }
 
     // --- User Actions ---
@@ -107,9 +107,9 @@ public class ChatViewModel {
                 // This now runs in the background and won't freeze the UI
                 System.out.println("[FRONT] Attempting to send RPC...");
                 this.rpc.call("chat:send-message", data)
-                        .thenRun(() -> System.out.println("[FRONT] ✅ RPC call successful! Core received it."))
+                        .thenRun(() -> System.out.println("[FRONT] RPC call successful! Core received it."))
                         .exceptionally(e -> {
-                            System.err.println("[FRONT] ❌ RPC call FAILED: " + e.getMessage());
+                            System.err.println("[FRONT] RPC call FAILED: " + e.getMessage());
                             e.printStackTrace();
                             return null;
                         });
