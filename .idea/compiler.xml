@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="module-networking" />
+        <module name="module-ux" />
+        <module name="module-chat" />
+        <module name="module-controller" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="module-ai-insights" target="16" />
+      <module name="module-app" target="16" />
+      <module name="module-canvas" target="16" />
+      <module name="module-cloud" target="16" />
+      <module name="module-integration-tests" target="16" />
+      <module name="module-screen-video" target="16" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="module-controller" options="-Xlint:all" />
+      <module name="module-ux" options="-Xlint:all" />
+    </option>
+  </component>
+</project>

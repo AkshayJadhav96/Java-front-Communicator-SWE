@@ -21,6 +21,7 @@
     <modules>
         <module>module-networking</module>
         <module>module-ux</module>
+        <module>module-controller</module>
         <module>module-chat</module>
     </modules>
 
